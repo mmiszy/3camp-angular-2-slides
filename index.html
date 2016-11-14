@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Angular 3 – O co tyle krzyku?</title>
+
+		<meta name="description" content="Ogłoszenie końca frameworka AngularJS 1.x było bardzo kontrowersyjne i odbiło się głośnym echem w społeczności JS. Angular 2 jeszcze przed powstaniem był prawdopodobnie najbardziej znienawidzonym frameworkiem w historii JavaScriptu. Teraz, krótko po premierze, wreszcie wiemy z czym dokładnie mamy do czynienia i możemy to trzeźwo ocenić.">
+		<meta name="author" content="Michał Miszczyszyn">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="bower_components/reveal.js/css/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+
+		<style>
+			img.seamless.seamless {
+				border: none;
+				background: transparent;
+				box-shadow: none;
+			}
+
+			input {
+    			font-size: 100%;
+    			border: 2px solid black;
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'bower_components/reveal.js/css/print/pdf.css' : 'bower_components/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script src="./angular.js"></script>
+
+		<!--[if lt IE 9]>
+		<script src="bower_components/reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h2>zażółć gęślą jaźń</h2>
+					<h3>testy</h3>
+					<p>– Oh my God. I didn't even know Smarties made a cereal.</p>
+					<p>– They don't. It's just Smarties in a bowl with milk.</p>
+					<ul>
+						<li>podpunkt</li>
+						<li>więcej informacji</li>
+					</ul>
+					<p>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/black.css'); return false;">Black</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','bower_components/reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section>
+					<h1>Angular 3</h1>
+					<h3>O co tyle krzyku?</h3>
+					<p>
+						<small>by <a href="https://typeofweb.com" target="_blank">Michał Miszczyszyn</a> / <a href="https://typeofweb.com" target="_blank">Type of Web</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Michał Miszczyszyn</h2>
+					<img src="img/10308105_4261629354442_4246729927061964868_n kwadrat.jpg" alt=""  style="float: right; width: 33%;">
+					<div style="float: left; width: 66%; text-align: left;">
+						<p>
+							Community Leader &amp; <br> Full-Stack JS Developer @ <a href="https://www.toptal.com/#connect-only-spectacular-freelancers-now" target="_blank">Toptal</a>
+						</p>
+						<p>
+							<a href="https://twitter.com/mmiszy" target="_blank">@mmiszy</a>
+						</p>
+						<p>
+							<a href="mailto:michal@miszczyszyn.com" target="_blank">michal@miszczyszyn.com</a>
+						</p>
+						<p>
+							<a href="https://typeofweb.com/" target="_blank">typeofweb.com</a>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Kto zna AngularJS?</h2>
+					<aside class="notes">
+						najpierw pytanie: Kto z Was zna AngularJS? Ręka do góry.<br>
+						A kto z Was słyszał o AngularJS?
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<p>stworzony przez pracowników Google</p>
+					<p>pierwsze wydanie: 20.10.2010 r.</p>
+					<p>6 lat temu!</p>
+					<aside class="notes">
+						AngularJS: pierwsze wydanie ponad 6 lat temu<br>
+						Oczywiście framework był rozwijany wcześniej
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<p>wykorzystywany przez gigantów</p>
+					<p>Apple, Netflix, PayPal, weather.com, YouTube</p>
+					<aside class="notes">
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<h3>Odmienił Internet</h3>
+					<aside class="notes">
+						bez wątpienia można powiedzieć, że AngularJS odmienił Internet
+					</aside>
+				</section>
+
+				<section data-background="http://i.giphy.com/d31w24psGYeekCZy.gif">
+
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<p>rewolucja:</p>
+					<p>Two-way data binding</p>
+
+					<aside class="notes">
+						wprowadził wiele nowych konceptów
+					</aside>
+				</section>
+
+				<section>
+					<script>
+						angular.module('TwoWayApp', []);
+					</script>
+					<div data-angular-app="TwoWayApp">
+						<h2>&nbsp;{{myModel}}</h2>
+						<input ng-model="myModel">
+					</div>
+					<pre><code class="js" data-trim>
+angular.module('TwoWayApp');
+					</code></pre>
+					<pre><code class="html" data-trim>
+&lt;div ng-app="TwoWayApp">
+	&lt;h2>{{myModel}}&lt;/h2>
+	&lt;input ng-model="myModel">
+&lt;/div>
+					</code></pre>
+
+					<aside class="notes">
+						to było coś niezwykle świeżego<br>
+						innowacyjnego<br>
+						zamiast MVC i ręcznej zmiany modeli: MAGIA
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<p>rozszerza HTML, ale nie zastępuje go</p>
+					<blockquote class=fragment cite="https://docs.angularjs.org/guide/introduction">
+						&ldquo;Angular is what HTML would have been, had it been designed for applications.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>To był rok 2010</h2>
+					<h2 class=fragment>Przewińmy kilka lat do przodu</h2>
+				</section>
+
+				<section data-transition="slide">
+					<h2>Ludzie dostrzegają problemy z&nbsp;AngularJS</h2>
+				</section>
+
+				<section>
+					<h2>AngularJS</h2>
+					<ul>
+						<li class=fragment>Wydajność <em>dirty checking</em></li>
+						<li class=fragment>Trudne do debugowania problemy ze <em>scopem</em></li>
+					</ul>
+
+					<aside class="notes">
+						Na początku 2013 roku wygłaszałem w Szczecinie prezentację na temat problemów z AngularJS<br>
+						m.in. pokazywałem ten kod<br>
+						skupmy się na moment, bo problem jest naprawdę zaskakujący
+					</aside>
+				</section>
+
+				<section>
+					<script>
+						angular.module('ExampleApp1', []);
+					</script>
+					<div data-angular-app="ExampleApp1" ng-init="isVisible = true">
+						{{ myVar }}
+ <div ng-show="isVisible"> 
+							<input ng-model="myVar">
+ </div>
+					</div>
+
+					<pre><code class="html" data-trim>
+{{ myVar }}
+ &lt;div ng-show="isVisible"> 
+	&lt;input ng-model="myVar">
+ &lt;/div>
+					</code></pre>
+				</section>
+
+				<section>
+					<script>
+						angular.module('ExampleApp2', []);
+					</script>
+					<div data-angular-app="ExampleApp2" ng-init="isVisible = true">
+						{{ myVar }}
+ <div ng-if="isVisible"> 
+							<input ng-model="myVar">
+ </div>
+					</div>
+
+					<pre><code class="html" data-trim>
+{{ myVar }}
+ &lt;div ng-if="isVisible"> 
+	&lt;input ng-model="myVar">
+ &lt;/div>
+					</code></pre>
+				</section>
+
+				<section>
+					<ul>
+						<li>mała zmiana = nowy <em>scope</em></li>
+						<li class="fragment">prosta aplikacja przestaje działać</li>
+						<li class="fragment">jak trudne było debuggowanie skomplikowanych przypadków?</li>
+					</ul>
+					<aside class="notes">
+						Okazuje się, że ta mała zmiana powoduje stworzenie nowego scope'a<br>
+						Przez co ta prosta aplikacja przestaje działać<br>
+						Wyobraźcie sobie jak trudne było debuggowanie bardziej skomplikowanych przypadków…
+					</aside>
+				</section>
+
+				<section>
+					<h2>Pojawiają się:</h2>
+					<ul>
+						<li class=fragment>WebComponents</li>
+						<li class=fragment>Virtual DOM</li>
+						<li class=fragment>Uniwersalne Aplikacje</li>
+					</ul>
+
+					<aside class="notes">
+						Uniwersalne czyli takie, które niekoniecznie muszą być renderowane w przeglądarce
+					</aside>
+				</section>
+
+				<section>
+					<h2>React.js</h2>
+					<ul>
+						<li class=fragment>Komponenty</li>
+						<li class=fragment>Virtual DOM</li>
+						<li class=fragment>Renderowanie po stronie serwera</li>
+					</ul>
+
+					<aside class="notes">
+						I powstaje React.js<br>
+						zawiera sobie to wszystko, co wymieniłem<br>
+						a także więcej, bo
+					</aside>
+				</section>
+
+				<section>
+					<h2>React.js</h2>
+					<h2 class="fragment">One-way data binding</h2>
+					<p class=fragment>Porządkuje przepływ danych</p>
+					<aside class="notes">
+						Wprowadza pewien nowy, a jednak stary, koncept, który okazuje się być rewolucją<br>
+						Jednokierunkowy przepływ danych
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS próbuje nadrobić</h2>
+				</section>
+
+				<section>
+					<h2>Wprowadza komponenty</h2>
+				</section>
+
+				<section>
+					<h2>Zachęca do zrezygnowania z&nbsp;Two-way data binding</h2>
+
+					<aside class="notes">
+						czyli sztandarowego pomysłu Angulara
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS nie potrafi</h2>
+					<ul>
+						<li class=fragment>renderować po stronie serwera</li>
+						<li class=fragment>kompilować do kodu natywnego</li>
+					</ul>
+
+					<aside class="notes">
+						Jednak szybko okazuje się, że AngularJS nadrobić nie może<br>
+					</aside>
+				</section>
+
+				<section>
+					<h2>AngularJS nie potrafi</h2>
+					<h3 class=fragment>Rozwiązać swoich problemów <span class=fragment>bez</span></h3>
+					<h3><span class=fragment>zerwania</span> <span class=fragment>kompatybilności</span> <span class=fragment>wstecznej</span></h3>
+					<img src="img/rip-clipart-rip-gravestone-md.png" class="fragment seamless" alt="">
+
+					<aside class="notes">
+						Oczywiście można było próbować dopisać brakujące elementy<br>
+						jednak wtedy prawdopodobnie powstałby mały potworek
+					</aside>
+				</section>
+
+				<section>
+					<h2>Rodzi się Angular 2</h2>
+					<img src="img/angular2-logo.png" alt="" class="seamless">
+
+					<aside class="notes">
+						Nowe seksi logo<br>
+						AngularJS po botoksie
+					</aside>
+				</section>
+
+				<section>
+					<h2>Angular 2</h2>
+					<ul>
+						<li class=fragment>wrzesień 2014: Ogłoszono Angular 2</li>
+						<li class=fragment>kwiecień 2014: Developer Preview</li>
+						<li class=fragment>grudzień 2015: Beta</li>
+						<li class=fragment>maj 2016: RC</li>
+						<li class=fragment>wrzesień 2016: wersja 2.0.0</li>
+					</ul>
+
+					<aside class="notes">
+						we wrześniu 2014 ogłoszono Angular 2<br>
+						w kwietniu wyszła pierwsza wersja deweloperska<br>
+						1,5 roku później wyszła BETA<br>
+						i w końcu po dwóch latach praca wersja stabilna<br>
+						jest to świeżynka, wydana dwa miesiące temu<br>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Angular 2 2.0.0 ???</h2>
+				</section>
+
+				<section>
+					<h2>Angular 2.0.0</h2>
+				</section>
+
+				<section>
+					<h2>Angular</h2>
+				</section>
+
+				<section>
+					<h2>Angular nie ma zbyt wiele wspólnego z AngularJS*</h2>
+					<p class=fragment>*oprócz nazwy</p>
+				</section>
+
+				<section data-background="http://i.giphy.com/7v735rSZA1Szm.gif">
+
+				</section>
+
+				<section>
+					<h2>Angular to zupełnie nowy framework</h2>
+				</section>
+
+				<section>
+					<h2>Angular</h2>
+					<ul>
+						<li class=fragment>rozwiązuje wszystkie problemy AngularJS</li>
+						<li class=fragment>…a także znacznie więcej</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Angular</h2>
+					<ul>
+						<li class=fragment>Oparty o komponenty</li>
+						<li class=fragment>Nie ma „luźnych” kontrolerów</li>
+						<li class=fragment>Wszystko jest komponentem</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Angular</h2>
+					<ul>
+						<li class=fragment>Napisany w TypeScript</li>
+						<li class=fragment>Aplikacje można pisać w TS lub ES2016</li>
+						<li class=fragment>Zalecana jest kompilacja aplikacji*</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Angular: Szybki przykład</h2>
+				</section>
+
+				<section>
+					<section>
+						<iframe src="https://embed.plnkr.co/s7tbAm1o0rbguCFot4KX/" frameborder="0" allowfullscren="allowfullscren" style="width: 100%; height: 600px;"></iframe>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+class MyComponent {
+
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+export class MyComponent {
+
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+@Component({
+})
+export class MyComponent {
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+import {Component} from '@angular/core';
+
+@Component({
+})
+export class MyComponent {
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-component'
+})
+export class MyComponent {
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-component',
+  template: ``
+})
+export class MyComponent {
+}
+</code></pre>
+					</section>
+
+					<section>
+<pre><code class="typescript" data-trim>
+import {Component} from '@angular/core';
+
+@Component({
+  selector: 'my-component',
+  template: `
+  	&lt;h2>Hello 3camp!&lt;/h2>
+  `
+})
+export class MyComponent {
+}
+</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Zdarzenia</h2>
+					<h4 class=fragment>dowolne zdarzenia DOM:</h4>
+					<pre class=fragment><code class="html" data-trim>
+&lt;input (click)="…">
+&lt;input (input)="…">
+&lt;input (change)="…">
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Zdarzenia</h2>
+					<h4 class=fragment>własne zdarzenia:</h4>
+					<pre class=fragment><code class="html" data-trim>
+&lt;my-component (change)="…">
+&lt;my-component (flow)="…">
+&lt;my-component (cokolwiek)="…">
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Atrybuty</h2>
+					<h4 class=fragment>dowolne atrybuty DOM:</h4>
+					<pre class=fragment><code class="html" data-trim>
+&lt;input [value]="…">
+&lt;input [checked]="…">
+&lt;input [disabled]="…">
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Atrybuty</h2>
+					<h4 class=fragment>własne atrybuty:</h4>
+					<pre class=fragment><code class="html" data-trim>
+&lt;my-component [user]="…">
+&lt;my-component [data]="…">
+&lt;my-component [message]="…">
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Two-way data binding</h2>
+					<ul>
+						<li class=fragment>Angular się o niego <strong style="text-decoration: underline;">nie</strong> opiera
+							<ul class=fragment>
+								<li>(jak było w AngularJS)</li>
+							</ul>
+						</li>
+						<li class=fragment>
+							ale czasem jest to przydatne
+						</li>
+						<li class=fragment>
+							np. przy pracy z formularzami
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Two-way data binding</h2>
+<pre class=fragment><code class="html" data-trim>
+&lt;input [(ngModel)]="myValue">
+</code></pre>
+<pre class=fragment><code class="html" data-trim>
+&lt;my-component [(someModel)]="user">
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Czy ta składnia Was odstrasza?</h2>
+					<p class=fragment>Mnie trochę tak.</p>
+				</section>
+
+				<section>
+					<h2>Alternatywna składnia</h2>
+<pre class=fragment><code class="html" data-trim>
+&lt;input on-click="…">
+&lt;input bind-value="…">
+&lt;input bindon-ngModel="…">
+</code></pre>
+				</section>
+
+				<section>
+					<h2>rozbudowane formularze</h2>
+					<ul>
+						<li class=fragment>
+							grupowanie pól
+						</li>
+						<li class=fragment>
+							walidacja (również asynchroniczna)
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>potężny router</h2>
+					<ul>
+						<li class=fragment>
+							„leniwe” ładowanie komponentów
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<li class=fragment>
+							Dependency Injection
+						</li>
+						<li class=fragment>
+							Moduły
+						</li>
+						<li class=fragment>
+							Reactive Programming: RxJS
+						</li>
+						<li class=fragment>
+							renderowanie po stronie serwera
+						</li>
+						<li class=fragment>
+							… i więcej
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Jak zacząć z Angularem?</h2>
+					<ul>Użyj <strong>Angular-CLI</strong>!</p>
+				</section>
+
+				<section>
+					<h2>Angular-CLI</h2>
+					<ul>
+						<li class=fragment>niczego więcej nie trzeba</li>
+						<li class=fragment>żadnych yeomanów</li>
+						<li class=fragment>generatorów</li>
+						<li class=fragment>tysiąca różnych konfiguracji</li>
+						<li class=fragment><strong>jedno domyślne narzędzie</strong></li>
+						<li class=fragment>(bolączka Reacta)</li>
+					</ul>
+
+					<aside class="notes">
+						bolączką pracy z JS-em jest tworzenie sobie środowiska<br>
+						tutaj mamy jedno domyślne narzędzie<br>
+						które rozwija się razem z frameworkiem i zawsze będzie aktualne<br>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Angular-CLI</h2>
+
+					<pre class=fragment><code class="sh">$ ng new moj-projekt</code></pre>
+					<pre class=fragment><code class="sh">$ ng generate component myComponent</code></pre>
+					<pre class=fragment><code class="sh">$ ng serve</code></pre>
+					<pre class=fragment><code class="sh">$ ng lint</code></pre>
+					<pre class=fragment><code class="js">$ ng test</code></pre>
+					<pre class=fragment><code class="sh">$ ng e2e</code></pre>
+					<pre class=fragment><code class="sh">$ ng build</code></pre>
+				</section>
+
+				<section>
+					<h2>Co dalej?</h2>
+					<img class=fragment src="img/angular-milestones.png" alt="">
+					<h3 class="fragment fade-down">Angular 3 &nbsp;&nbsp;&nbsp;&nbsp;<span class="fragment">Czo?</span></h3>
+				</section>
+
+				<section>
+					<h2>To tylko SemVer!</h2>
+					<ul>
+						<li class=fragment>AngularJS 1.0</li>
+						<li class=fragment>AngularJS 1.1</li>
+						<li class=fragment>AngularJS 1.2</li>
+						<li class=fragment>AngularJS 1.3</li>
+						<li class=fragment>AngularJS 1.4</li>
+						<li class=fragment>AngularJS 1.5</li>
+					</ul>
+					<img class="fragment seamless" src="img/thumb-down.png" alt="" style="width: 25%;display: block;float: right; background: white;">
+				</section>
+
+				<section>
+					<h2>To tylko SemVer!</h2>
+					<ul>
+						<li class=fragment>Angular 2</li>
+						<li class=fragment>Angular 3</li>
+						<li class=fragment>Angular 4</li>
+						<li class=fragment>Angular 5</li>
+						<li class=fragment>Angular 6</li>
+						<li class=fragment>Angular 7</li>
+					</ul>
+					<img class="fragment seamless" src="img/thumb-up.png" alt="" style="width: 25%;display: block;float: right; background: white;">
+				</section>
+
+				<section>
+					<h2>Dokąd teraz?</h2>
+					<ul>
+						<li><a href="https://angular.io/">angular.io</a></li>
+						<li><a href="https://www.typescriptlang.org/">typescriptlang.org</a></li>
+						<li><a href="https://www.pluralsight.com/courses/angular-2-first-look">Kurs Angular 2 na Pluralsight</a></li>
+					</ul>
+				</section>
+
+                <section>
+                    <h2>Michał Miszczyszyn</h2>
+                    <img src="img/10308105_4261629354442_4246729927061964868_n kwadrat.jpg" alt=""  style="float: right; width: 33%;">
+                    <div style="float: left; width: 66%; text-align: left;">
+                        <p>
+                            Community Leader &amp; <br> Full-Stack JS Developer @ <a href="https://www.toptal.com/#connect-only-spectacular-freelancers-now" target="_blank">Toptal</a>
+                        </p>
+                        <p>
+                            <a href="https://twitter.com/mmiszy" target="_blank">@mmiszy</a>
+                        </p>
+                        <p>
+                            <a href="mailto:michal@miszczyszyn.com" target="_blank">michal@miszczyszyn.com</a>
+                        </p>
+                        <p>
+                            <a href="https://typeofweb.com/" target="_blank">typeofweb.com</a>
+                        </p>
+                    </div>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="bower_components/reveal.js/lib/js/head.min.js"></script>
+		<script src="bower_components/reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: "c/t",
+
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'bower_components/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'bower_components/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'bower_components/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script>
+			Array.from(document.querySelectorAll('[data-angular-app]')).forEach(el => {
+				angular.bootstrap(el, [el.attributes['data-angular-app'].value]);
+			});
+		</script>
+
+	</body>
+</html>

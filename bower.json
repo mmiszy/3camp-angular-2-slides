@@ -1,0 +1,22 @@
+{
+  "name": "3camp-angular-2",
+  "authors": [
+    "Michal Miszczyszyn <michal@mmiszy.pl>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://typeofweb.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "^3.3.0"
+  }
+}
