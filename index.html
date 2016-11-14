@@ -109,6 +109,7 @@
 
 				<section>
 					<h2>Kto zna AngularJS?</h2>
+                    <img src="img/AngularJS-Shield-large.png" style="max-width: 200px;" class="seamless" alt="">
 					<aside class="notes">
 						najpierw pytanie: Kto z Was zna AngularJS? Ręka do góry.<br>
 						A kto z Was słyszał o AngularJS?
@@ -177,7 +178,8 @@ angular.module('TwoWayApp');
 					<aside class="notes">
 						to było coś niezwykle świeżego<br>
 						innowacyjnego<br>
-						zamiast MVC i ręcznej zmiany modeli: MAGIA
+						zamiast MVC i ręcznej zmiany modeli: MAGIA<br>
+                        a wszystko to przy pomocy 0 kodu JS, tylko HTML
 					</aside>
 				</section>
 
@@ -380,6 +382,9 @@ angular.module('TwoWayApp');
 
 				<section>
 					<h2>Angular</h2>
+                    <aside class="notes">
+                        dlatego dla odróżnienia Angular oznacza wersję 2, a AngularJS oznacza wersję 1
+                    </aside>
 				</section>
 
 				<section>
@@ -664,6 +669,56 @@ export class MyComponent {
 					<pre class=fragment><code class="sh">$ ng build</code></pre>
 				</section>
 
+                <section>
+                    <h2>*Kompilacja</h2>
+                    <ul>
+                        <li class=fragment>
+                            ogromne pole do optymalizacji
+                        </li>
+                        <li class=fragment>
+                            duża część kodu Angulara to kompilator szablonów
+                        </li>
+                        <li class=fragment>
+                            …i klasy, z których możemy akurat nie korzystać
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>*Kompilacja</h2>
+                    <ul>
+                        <li class=fragment>
+                            klas (<em>tree shaking</em>)
+                        </li>
+                        <li class=fragment>
+                            szablonów (<em>Ahead of Time</em>)
+                        </li>
+                    </ul>
+
+                    <aside class="notes">
+                        dzięki czemu usunięty zostaje kompilator szablonów co znacznie zmniejsza rozmiar pliku na produkcji
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Zysk z kompilacji?</h2>
+                    <table>
+                        <tr class=fragment>
+                            <td style="text-align:right;">development:</td><td>1,4MB</td>
+                        </tr>
+                        <tr class=fragment>
+                            <td style="text-align:right;">pełna kompilacja:</td><td>39KB</td>
+                        </tr>
+                        <tr class=fragment>
+                            <td colspan="2" style="text-align:center;"><strong>36 razy mniej!</strong></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <img src="img/bundle-size-chart.png" alt="">
+                </section>
+
 				<section>
 					<h2>Co dalej?</h2>
 					<img class=fragment src="img/angular-milestones.png" alt="">
@@ -701,7 +756,10 @@ export class MyComponent {
 					<ul>
 						<li><a href="https://angular.io/">angular.io</a></li>
 						<li><a href="https://www.typescriptlang.org/">typescriptlang.org</a></li>
-						<li><a href="https://www.pluralsight.com/courses/angular-2-first-look">Kurs Angular 2 na Pluralsight</a></li>
+						<li style="margin-bottom: 20px;"><a href="https://www.pluralsight.com/courses/angular-2-first-look">Kurs Angular 2 na Pluralsight</a></li>
+
+                        <li><a href="http://blog.mgechev.com/2016/06/26/tree-shaking-angular2-production-build-rollup-javascript/">Kompilacja Angular 2</a></li>
+                        <li><a href="https://toddmotto.com/please-stop-worrying-about-angular-3">Angular 3</a></li>
 					</ul>
 				</section>
 
